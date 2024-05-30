@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuotationListBondViewModel {
+public struct QuotationListBondViewModel {
     var instrumentId: Int
     var name: String
     var price: Decimal

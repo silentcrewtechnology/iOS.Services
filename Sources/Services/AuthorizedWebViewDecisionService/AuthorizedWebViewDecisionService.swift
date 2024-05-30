@@ -8,8 +8,8 @@
 import Foundation
 import WebKit
 
-/// Хэлпер, помоаегт принять решение о показе/отмене показа страницы в webView
-final class AuthorizedWebViewDecisionService {
+/// Хэлпер, помогает принять решение о показе/отмене показа страницы в webView
+public final class AuthorizedWebViewDecisionService {
     
     // MARK: - Private properties
 
@@ -17,17 +17,17 @@ final class AuthorizedWebViewDecisionService {
     
     // MARK: - Properties
     
-    weak var webViewCookieStore: WKHTTPCookieStore?
+    public weak var webViewCookieStore: WKHTTPCookieStore?
     
     // MARK: - Life cycle
 
-    init(startUrl: URL?) {
+    public init(startUrl: URL?) {
         self.startUrl = startUrl
     }
     
     // MARK: - Methods
 
-    func makeDecisionAndLoadDocumentIfNeeded(
+    public func makeDecisionAndLoadDocumentIfNeeded(
         response: URLResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void,
         successDownloadCompletion: @escaping (URL) -> Void,
@@ -101,7 +101,7 @@ final class AuthorizedWebViewDecisionService {
     }
 
     // Решаем показывать ли активити индикатор для данного урла либо нет
-    func makeDecisionShowActivityIndicator(
+    public func makeDecisionShowActivityIndicator(
         url: URL,
         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void,
         activityIndicatorCompletion: () -> Void
@@ -113,7 +113,7 @@ final class AuthorizedWebViewDecisionService {
         decisionHandler(.allow)
     }
 
-    func loadDocumentFrom(
+    public func loadDocumentFrom(
         url downloadUrl: URL,
         downloadFileName: String?,
         successDownloadCompletion: @escaping (URL) -> Void,

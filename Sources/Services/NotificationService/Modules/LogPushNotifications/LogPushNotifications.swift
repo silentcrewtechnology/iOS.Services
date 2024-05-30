@@ -9,7 +9,7 @@
 import Foundation
 import UserNotifications
 
-final class LogPushNotifications: PushNotificationProcessingProtocol {
+public final class LogPushNotifications: PushNotificationProcessingProtocol {
     
     // MARK: - Private properties
     
@@ -18,13 +18,13 @@ final class LogPushNotifications: PushNotificationProcessingProtocol {
     
     // MARK: - Life cycle
     
-    init(logPrefixString: String) {
+    public init(logPrefixString: String) {
         self.logPrefixString = logPrefixString
     }
     
     // MARK: - Methods
     
-    func processPushNotification(mutableNotificationContent: UNMutableNotificationContent) -> Bool {
+    public func processPushNotification(mutableNotificationContent: UNMutableNotificationContent) -> Bool {
         debugPrint(
             generateDateStamp(),
             "PushNotificationsLog \(logPrefixString) Log Start",

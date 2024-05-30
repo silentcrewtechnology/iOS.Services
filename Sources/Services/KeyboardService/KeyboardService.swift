@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-struct KeyboardService {
+public struct KeyboardService {
     
     // MARK: - Properties
     
@@ -17,7 +17,7 @@ struct KeyboardService {
     
     // MARK: - Life cycle
     
-    init() {
+    public init() {
         setupNotification()
     }
     
