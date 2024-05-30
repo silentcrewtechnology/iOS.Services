@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DateFormatterService {
+public struct DateFormatterService {
     
     // MARK: - Properties
     
-    enum Format: String {
+    public enum Format: String {
         case yyyyMMddTHHmmssSSSSSSSZ = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
         case yyyyMMddTHHmmssZ = "yyyy-MM-dd'T'HH:mm:ssZ"
         case ddEmptyMMMMEmptyyyyyEmptyHHmm = "dd MMMM yyyy, HH:mm"
@@ -24,7 +24,7 @@ struct DateFormatterService {
     
     // MARK: - Methods
     
-    func convert(with string: String?, from: Format, to: Format) -> String? {
+    public func convert(with string: String?, from: Format, to: Format) -> String? {
         guard let string = string else { return nil }
         
         dateFormatter.dateFormat = from.rawValue
@@ -39,7 +39,7 @@ struct DateFormatterService {
         return dateString
     }
     
-    func makeStringFromDate(date: Date, format: Format) -> String {
+    public func makeStringFromDate(date: Date, format: Format) -> String {
         dateFormatter.dateFormat = format.rawValue
         let dateString = dateFormatter.string(from: date)
         

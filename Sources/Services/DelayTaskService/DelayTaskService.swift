@@ -8,7 +8,7 @@
 import Foundation
 
 // Сервис для отмены предыдущего действия
-final class DelayTaskService {
+public final class DelayTaskService {
     
     // MARK: - Private properties
     
@@ -16,11 +16,11 @@ final class DelayTaskService {
     
     // MARK: - Properties
   
-    var execute: (() -> Void)?
+    public var execute: (() -> Void)?
 
     // MARK: - Methods
 
-    func executeAfter(seconds: Double) {
+    public func executeAfter(seconds: Double) {
         cancelDelete()
         timer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false, block: { [weak self] _ in
             self?.execute?()

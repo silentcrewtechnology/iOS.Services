@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum PackageCardPreviewPaymentSystem: Int, Codable {
+public enum PackageCardPreviewPaymentSystem: Int, Codable {
     case unknown
     case visa
     case masterCard
     case maestro
     case mir
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         self = try PackageCardPreviewPaymentSystem(
             rawValue: decoder.singleValueContainer().decode(RawValue.self)
         ) ?? .unknown

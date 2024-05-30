@@ -9,7 +9,7 @@
 import Foundation
 import UserNotifications
 
-final class GuaranteedDeliveryProcessing: PushNotificationProcessingProtocol {
+public final class GuaranteedDeliveryProcessing: PushNotificationProcessingProtocol {
     
     // MARK: - Private properties
     
@@ -20,7 +20,7 @@ final class GuaranteedDeliveryProcessing: PushNotificationProcessingProtocol {
     
     // MARK: - Methods
     
-    func processPushNotification(mutableNotificationContent: UNMutableNotificationContent) -> Bool {
+    public func processPushNotification(mutableNotificationContent: UNMutableNotificationContent) -> Bool {
         if let operationToken = mutableNotificationContent.userInfo["operationToken"] as? String {
             #if !DEBUG
             debugPrint(

@@ -8,11 +8,11 @@
 import UIKit
 import Kingfisher
 
-enum PackageCardPreviewService {
+public enum PackageCardPreviewService {
     
     // MARK: - Methods
     
-    static func loadCardIcon(
+    public static func loadCardIcon(
         url: URL,
         completion: @escaping (UIImage) -> Void
     ) {
@@ -22,7 +22,7 @@ enum PackageCardPreviewService {
           }
     }
     
-    static func paymentSystemIcon(paymentSystem: PackageCardPreviewPaymentSystem) -> UIImage {
+    public static func paymentSystemIcon(paymentSystem: PackageCardPreviewPaymentSystem) -> UIImage {
         switch paymentSystem {
         case .unknown:
             return .init()

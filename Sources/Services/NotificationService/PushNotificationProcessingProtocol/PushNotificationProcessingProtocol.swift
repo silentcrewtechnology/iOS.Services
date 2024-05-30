@@ -11,7 +11,7 @@ import UserNotifications
 
 // Протокол для обработки PushNotification.
 // Чтоб не плодить код в NotificationService создал chain of responsibility
-protocol PushNotificationProcessingProtocol: AnyObject {
+public protocol PushNotificationProcessingProtocol: AnyObject {
     // При возвращение false прекращаем обработку
     /* Example:
      *  mutableNotificationContent.title = "\(mutableNotificationContent.title) [modified]"

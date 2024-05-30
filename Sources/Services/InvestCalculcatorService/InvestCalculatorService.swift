@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct InvestCalculatorService {
+public struct InvestCalculatorService {
     
     // MARK: - Methods
     
-    func calculateSum(amount: Decimal, bond: QuotationListBondViewModel) -> Decimal {
+    public func calculateSum(amount: Decimal, bond: QuotationListBondViewModel) -> Decimal {
         let count = (amount / bond.price).rounded(scale: 0, roundingMode: .down)
         let finalSum = count * 10
         let yearSum = finalSum * bond.yieldToMaturity
@@ -22,7 +22,7 @@ struct InvestCalculatorService {
         return profit.rounded(scale: 0, roundingMode: .down)
     }
     
-    func getCountDays(endDateString: String) -> Int {
+    public func getCountDays(endDateString: String) -> Int {
         let endDates = endDateString.components(separatedBy: "T").first
         let date = Date()
         let calendar = Calendar.current
@@ -38,7 +38,7 @@ struct InvestCalculatorService {
         return components.value(for: .day) ?? 0
     }
     
-    func getTheTimeDifference(endDateString: String) -> String {
+    public func getTheTimeDifference(endDateString: String) -> String {
         let endDates = endDateString.components(separatedBy: "T").first
         let date = Date()
         let calendar = Calendar.current
@@ -65,13 +65,13 @@ struct InvestCalculatorService {
         return "Через \(yearsTitle)\(monthsTitle)"
     }
     
-    private func pluralizedMonths(months: Int) -> String {
+    public func pluralizedMonths(months: Int) -> String {
         guard months != 0 else { return "" }
         
         return " \(Plural.spaced(number: months, phrase: Plural.months))"
     }
     
-    func pluralizedYears(years: Int) -> String {
+    public func pluralizedYears(years: Int) -> String {
         guard years != 0 else { return "" }
         
         return " \(Plural.spaced(number: years, phrase: Plural.years))"

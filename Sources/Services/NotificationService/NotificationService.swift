@@ -44,7 +44,7 @@ import UserNotifications
 //    pod 'Moya', '= 13.0.1'
 //end
 
-class NotificationService: UNNotificationServiceExtension {
+public class NotificationService: UNNotificationServiceExtension {
     
     // MARK: - Properties
     
@@ -71,7 +71,7 @@ class NotificationService: UNNotificationServiceExtension {
     
     // MARK: - Methods
 
-    override func didReceive(
+    public override func didReceive(
         _ request: UNNotificationRequest,
         withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void
     ) {
@@ -97,7 +97,7 @@ class NotificationService: UNNotificationServiceExtension {
         #endif
     }
 
-    override func serviceExtensionTimeWillExpire() {
+    public override func serviceExtensionTimeWillExpire() {
         // Called just before the extension will be terminated by the system.
         // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
         if let contentHandler = contentHandler, let bestAttemptContent = bestAttemptContent {

@@ -8,11 +8,11 @@
 import UIKit
 import CoreData
 
-struct CoreDataService {
+public struct CoreDataService {
     
     // MARK: - Properties
     
-    enum Predicate {
+    public enum Predicate {
         case key(Key, String)
         
         func create() -> NSPredicate {
@@ -23,13 +23,13 @@ struct CoreDataService {
         }
     }
     
-    enum Key: String, CaseIterable {
+    public enum Key: String, CaseIterable {
         case productID
     }
     
     // MARK: - Methods
     
-    func fetchName<T: NSManagedObject>(object: T, predicate: Predicate) -> T? {
+    public func fetchName<T: NSManagedObject>(object: T, predicate: Predicate) -> T? {
         let fetchRequest: NSFetchRequest = T.fetchRequest()
         fetchRequest.predicate = predicate.create()
         
@@ -44,7 +44,7 @@ struct CoreDataService {
         }
     }
     
-    func fetch<T: NSManagedObject>(object: T.Type) -> [T]? {
+    public func fetch<T: NSManagedObject>(object: T.Type) -> [T]? {
         do {
             let result = try PersistentService.viewContext.fetch(T.fetchRequest()) as? [T]
             
@@ -56,20 +56,20 @@ struct CoreDataService {
         }
     }
     
-    func create<T: NSManagedObject>(object: T.Type) -> T {
+    public func create<T: NSManagedObject>(object: T.Type) -> T {
         let object = T(context: PersistentService.viewContext)
         PersistentService.saveContext()
         
         return object
     }
     
-    func delete(object: NSManagedObject?) {
+    public func delete(object: NSManagedObject?) {
         guard let object = object else { return }
         
         PersistentService.viewContext.delete(object)
     }
     
-    func save() {
+    public func save() {
         PersistentService.saveContext()
     }
 }

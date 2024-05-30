@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RemoveTextService {
+public struct RemoveTextService {
     
     // MARK: - Methods
 
-    func remove(in text: String?, count: Int) -> String {
+    public func remove(in text: String?, count: Int) -> String {
         guard var text = text else { return "" }
         
         if text.count > count {

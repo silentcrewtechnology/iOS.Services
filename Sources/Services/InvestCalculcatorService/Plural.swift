@@ -8,7 +8,7 @@
 import Foundation
 
 /// Вспомогательная структура для склонения существительных в множественном числе
-enum Plural {
+public enum Plural {
     
     // MARK: - Общие вспомогательные методы
     
@@ -18,7 +18,7 @@ enum Plural {
     ///   - few: Существительное для чисел 2...4, 22...24, 32...34, ...
     ///   - many: Существительное для чисел 0, 5...20, 25...30, 35...40, ...
     /// - Returns: Подходящий вариант склонения
-    static func custom(
+    public static func custom(
         number: Int,
         one: String,
         few: String,
@@ -34,7 +34,7 @@ enum Plural {
     
     /// Фраза типа "`number` `phrase(number)`".
     /// Для использования с функциями типа `Plural.days`
-    static func spaced(
+    public static func spaced(
         number: Int,
         phrase: (Int) -> String
     ) -> String {
@@ -42,7 +42,7 @@ enum Plural {
     }
     
     /// Фраза типа "`number` `phrase`"
-    static func spaced(
+    public static func spaced(
         number: Int,
         phrase: String
     ) -> String {
@@ -52,7 +52,7 @@ enum Plural {
     // MARK: - Переиспользуемые существительные
     
     /// Существительное "день" в склонении числа `number`
-    static func days(number: Int) -> String {
+    public static func days(number: Int) -> String {
         // TODO: - Localized "Days.Plural.1", "Days.Plural.2", "Days.Plural.5"
         return custom(
             number: number,
@@ -63,7 +63,7 @@ enum Plural {
     }
     
     /// Существительное "месяц" в склонении числа `number`
-    static func months(number: Int) -> String {
+    public static func months(number: Int) -> String {
         // TODO: - Localized "Plural.Months.One", "Plural.Months.Few", "Plural.Months.Many"
         return custom(
             number: number,
@@ -74,7 +74,7 @@ enum Plural {
     }
     
     /// Существительное "операция" в склонении числа `number`
-    static func operations(number: Int) -> String {
+    public static func operations(number: Int) -> String {
         // TODO: - Localized "Plural.Operations.One", "Plural.Operations.Few", "Plural.Operations.Many"
         return custom(
             number: number,
@@ -85,7 +85,7 @@ enum Plural {
     }
     
     /// Существительное "продукт" в склонении числа `number`
-    static func products(number: Int) -> String {
+    public static func products(number: Int) -> String {
         // TODO: - Localized "Plural.Products.One", "Plural.Products.Few", "Plural.Products.Many"
         return custom(
             number: number,
@@ -96,7 +96,7 @@ enum Plural {
     }
     
     /// Существительное "год" в склонении числа `number`
-    static func years(number: Int) -> String {
+    public static func years(number: Int) -> String {
         // TODO: - Localized "Plural.Years.One", "Plural.Years.Few", "Plural.Years.Many"
         return custom(
             number: number,
