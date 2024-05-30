@@ -15,8 +15,7 @@ let package = Package(
             targets: ["Services"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/onevcat/Kingfisher", exact: "7.11.0"),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", exact: "5.6.0"),
+        .package(url: "https://github.com/onevcat/Kingfisher", exact: "7.11.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,8 +23,7 @@ let package = Package(
         .target(
             name: "Services",
             dependencies: [
-                .product(name: "Kingfisher", package: "Kingfisher"),
-                .product(name: "SnapKit", package: "SnapKit")
+                .product(name: "Kingfisher", package: "Kingfisher")
             ]
         ),
         .testTarget(
