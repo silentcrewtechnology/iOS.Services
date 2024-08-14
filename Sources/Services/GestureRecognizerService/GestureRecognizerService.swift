@@ -14,6 +14,10 @@ public final class GestureRecognizerService {
     private var textProvider: (() -> String?)?
     private var menuTitle: String?
     
+    // MARK: - Life cycle
+    
+    public init() { }
+    
     // MARK: - Methods
     
     public func createRecognizerForCopy(
