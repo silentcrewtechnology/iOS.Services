@@ -21,7 +21,8 @@ public final class GestureRecognizerService {
     // MARK: - Methods
     
     public func createRecognizerForCopy(
-        numberOfTapsRequired: Int = 1,
+        numberOfTapsRequired: Int = .zero,
+        numberOfTouchesRequired: Int = 1,
         minimumPressDuration: CGFloat = 0.3,
         cancelsTouchesInView: Bool = false,
         menuTitle: String? = nil,
@@ -32,6 +33,7 @@ public final class GestureRecognizerService {
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         longPressRecognizer.numberOfTapsRequired = numberOfTapsRequired
+        longPressRecognizer.numberOfTouchesRequired = numberOfTouchesRequired
         longPressRecognizer.minimumPressDuration = minimumPressDuration
         longPressRecognizer.cancelsTouchesInView = cancelsTouchesInView
         
