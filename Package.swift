@@ -13,13 +13,15 @@ let package = Package(
             targets: ["Services"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/onevcat/Kingfisher", exact: "7.11.0")
+        .package(url: "https://github.com/onevcat/Kingfisher", exact: "7.11.0"),
+        .package(url: "https://gitlab.akbars.tech/abo/ios-service-network", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         .target(
             name: "Services",
             dependencies: [
-                .product(name: "Kingfisher", package: "Kingfisher")
+                .product(name: "Kingfisher", package: "Kingfisher"),
+                .product(name: "iOS.Service.Network", package: "ios-service-network")
             ]
         ),
     ]

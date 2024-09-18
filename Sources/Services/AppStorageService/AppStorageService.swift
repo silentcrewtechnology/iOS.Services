@@ -1,17 +1,15 @@
 import Foundation
 
 public class AppStorageService {
-    
+    // TODO: - PCABO3-11586
     public var deviceToken: String? {
         get { UserDefaults.standard.string(forKey: "DeviceToken") }
         set { UserDefaults.standard.setValue(newValue, forKey: "DeviceToken") }
     }
-    // TODO: Keychain
     public var refreshToken: String? {
         get { UserDefaults.standard.string(forKey: "RefreshToken") }
         set { UserDefaults.standard.setValue(newValue, forKey: "RefreshToken") }
     }
-    // TODO: Store in memory
     public var sessionToken: String? {
         get { UserDefaults.standard.string(forKey: "SessionToken") }
         set { UserDefaults.standard.setValue(newValue, forKey: "SessionToken") }
@@ -20,7 +18,6 @@ public class AppStorageService {
         get { UserDefaults.standard.string(forKey: "BearerToken") }
         set { UserDefaults.standard.setValue(newValue, forKey: "BearerToken") }
     }
-    // TODO: Keychain
     public var pin: String? {
         get { UserDefaults.standard.string(forKey: "Pin") }
         set { UserDefaults.standard.setValue(newValue, forKey: "Pin") }
@@ -28,6 +25,14 @@ public class AppStorageService {
     public var pushToken: String? {
         get { UserDefaults.standard.string(forKey: "PushToken") }
         set { UserDefaults.standard.setValue(newValue, forKey: "PushToken") }
+    }
+    public var userFirstName: String? {
+        get { UserDefaults.standard.string(forKey: "UserFirstName") }
+        set { UserDefaults.standard.setValue(newValue, forKey: "UserFirstName") }
+    }
+    public var userPictureURL: String? {
+        get { UserDefaults.standard.string(forKey: "UserPictureURL") }
+        set { UserDefaults.standard.setValue(newValue, forKey: "UserPictureURL") }
     }
     
     public init() { }
@@ -38,5 +43,7 @@ public class AppStorageService {
         bearerToken = nil
         pushToken = nil
         pin = nil
+        userFirstName = nil
+        userPictureURL = nil
     }
 }
