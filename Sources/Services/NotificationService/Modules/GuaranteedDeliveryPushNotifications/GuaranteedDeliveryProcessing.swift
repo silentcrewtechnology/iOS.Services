@@ -13,8 +13,8 @@ public final class GuaranteedDeliveryProcessing: PushNotificationProcessingProto
     
     // MARK: - Private properties
     
-    // Full url "http://testbankok.akbars.ru/api/notifications/confirm?operationToken=operationTokenString"
-    private let operationTokenServer = "http://testbankok.akbars.ru/" // NetworkConstants.serverUrl
+    // Full url "https://redacted.ru/api/notifications/confirm?operationToken=operationTokenString"
+    private let operationTokenServer = "https://redacted.ru" // NetworkConstants.serverUrl
     private let operationTokenPath = "api/notifications/confirm"
     private let operationTokenQueryParameter = "operationToken"
     
