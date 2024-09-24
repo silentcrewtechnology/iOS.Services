@@ -20,9 +20,10 @@ public struct UserInfo: Decodable {
     public var socialNetworks: [String]?
     public var status: String?
     public var bankokCardStatus: BankokCardStatus?
-    public var akbarsId: String?
+    public var redactedId: String?
     public var defaultContractId: String?
     
+    #if DEBUG
     enum CodingKeys: String, CodingKey {
         case uid = "Uid"
         case firstName = "FirstName"
@@ -36,12 +37,34 @@ public struct UserInfo: Decodable {
         case socialNetworks = "SocialNetworks"
         case status = "Status"
         case bankokCardStatus = "BankokCardStatus"
-        case akbarsId = "AkbarsId"
+        case redactedId = "AkbarsId"
         case defaultContractId = "DefaultContractId"
+    }
+    #else
+    private struct RedactedCodingKeys: CodingKey {
+        var stringValue: String
+        var intValue: Int?
+        
+        init(stringValue: String) { self.stringValue = stringValue }
+        init?(intValue: Int) { nil }
+        static let uid = Self.init(stringValue: "Uid")
+        static let firstName = Self.init(stringValue: "FirstName")
+        static let lastName = Self.init(stringValue: "LastName")
+        static let middleName = Self.init(stringValue: "MiddleName")
+        static let displayName = Self.init(stringValue: "DisplayName")
+        static let gender = Self.init(stringValue: "Gender")
+        static let pictureUrl = Self.init(stringValue: "PictureUrl")
+        static let originalPictureUrl = Self.init(stringValue: "OriginalPictureUrl")
+        static let mobilePhone = Self.init(stringValue: "MobilePhone")
+        static let socialNetworks = Self.init(stringValue: "SocialNetworks")
+        static let status = Self.init(stringValue: "Status")
+        static let bankokCardStatus = Self.init(stringValue: "BankokCardStatus")
+        static let redactedId = Self.init(stringValue: "AXXarsId".replacingOccurrences(of: "XX", with: "kb"))
+        static let defaultContractId = Self.init(stringValue: "DefaultContractId")
     }
     
     public init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: RedactedCodingKeys.self)
         self.uid = try container.decodeIfPresent(String.self, forKey: .uid)
         self.firstName = try container.decodeIfPresent(String.self, forKey: .firstName)
         self.lastName = try container.decodeIfPresent(String.self, forKey: .lastName)
@@ -54,9 +77,10 @@ public struct UserInfo: Decodable {
         self.socialNetworks = try container.decodeIfPresent([String].self, forKey: .socialNetworks)
         self.status = try container.decodeIfPresent(String.self, forKey: .status)
         self.bankokCardStatus = try container.decodeIfPresent(BankokCardStatus.self, forKey: .bankokCardStatus)
-        self.akbarsId = try container.decodeIfPresent(String.self, forKey: .akbarsId)
+        self.redactedId = try container.decodeIfPresent(String.self, forKey: .redactedId)
         self.defaultContractId = try container.decodeIfPresent(String.self, forKey: .defaultContractId)
     }
+    #endif
     
     public init(
         firstName: String?,

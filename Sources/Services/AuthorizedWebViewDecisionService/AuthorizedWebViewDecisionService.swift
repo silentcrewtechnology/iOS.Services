@@ -139,8 +139,15 @@ public final class AuthorizedWebViewDecisionService {
                 if let domainName = domainName, cookie.domain.contains(domainName) {
                     isHostNameInCookieDomain = true
                 }
-
-                if isHostNameInCookieDomain || cookie.domain.contains(".akbars.ru") {
+                
+                let isAbbDomain: Bool = {
+                    #if DEBUG
+                    cookie.domain.contains("akbars.ru")
+                    #else
+                    cookie.domain.replacingOccurrences(of: "kb", with: "xx").contains(".axxars.ru")
+                    #endif
+                }()
+                if isHostNameInCookieDomain || isAbbDomain {
                     HTTPCookieStorage.shared.setCookie(cookie)
                 }
             }
