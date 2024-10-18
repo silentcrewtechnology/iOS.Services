@@ -12,8 +12,8 @@ public struct KeyboardService {
     
     // MARK: - Properties
     
-    var showKeyboard = PassthroughSubject<CGFloat, Never>()
-    var dismissKeyboard = PassthroughSubject<CGFloat, Never>()
+    public var showKeyboard = PassthroughSubject<CGFloat, Never>()
+    public var dismissKeyboard = PassthroughSubject<CGFloat, Never>()
     
     // MARK: - Life cycle
     
