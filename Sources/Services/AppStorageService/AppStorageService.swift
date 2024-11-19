@@ -1,4 +1,5 @@
 import Foundation
+import Kingfisher
 
 public class AppStorageService {
     // TODO: - PCABO3-11586 Keychain
@@ -34,7 +35,10 @@ public class AppStorageService {
     }
     public var sessionToken: String? {
         get { UserDefaults.standard.string(forKey: "SessionToken") }
-        set { UserDefaults.standard.setValue(newValue, forKey: "SessionToken") }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "SessionToken")
+            KingfisherManager.authorizedDefault.setSessionToken(newValue)
+        }
     }
     
     public init() { }
