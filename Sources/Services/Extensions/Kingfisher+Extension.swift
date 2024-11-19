@@ -1,30 +1,18 @@
 import Foundation
 import Kingfisher
 
-extension ImageDownloader {
-    
-    private static var cachedAuthorizedDefault = ImageDownloader(name: "authorized-default")
+extension KingfisherManager {
     
     /// Содержит актуальный SessionToken
-    static var authorizedDefault: ImageDownloader {
-        let storage = AppStorageService()
-        var configuration = cachedAuthorizedDefault.sessionConfiguration
-        configuration.httpAdditionalHeaders = [
-            "SessionToken": storage.sessionToken as Any
+    public static let authorizedDefault: KingfisherManager = .init(
+        downloader: .init(name: "authorized-default"),
+        cache: .default
+    )
+    
+    /// Добавляет `SessionToken` в хэдеры при запросе картинок
+    public func setSessionToken(_ sessionToken: String?) {
+        downloader.sessionConfiguration.httpAdditionalHeaders = [
+            "SessionToken": sessionToken as Any
         ]
-        cachedAuthorizedDefault.sessionConfiguration = configuration
-        
-        return cachedAuthorizedDefault
-    }
-}
-
-public extension KingfisherManager {
-    
-    private static var cachedAuthorizedDefault = KingfisherManager(downloader: .authorizedDefault, cache: .default)
-    
-    /// Содержит актуальный SessionToken
-    static var authorizedDefault: KingfisherManager {
-        cachedAuthorizedDefault.downloader = .authorizedDefault
-        return cachedAuthorizedDefault
     }
 }
