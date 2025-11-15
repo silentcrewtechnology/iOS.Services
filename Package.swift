@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.11.0"),
-        .package(url: "https://gitlab.akbars.tech/abo/ios-service-network.git", .upToNextMajor(from: "1.0.0"))
+        .package(url: "https://github.com/silentcrewtechnology/iOS.Service.Network.git", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         .target(
