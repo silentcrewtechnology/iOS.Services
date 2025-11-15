@@ -21,7 +21,7 @@ let package = Package(
             name: "Services",
             dependencies: [
                 .product(name: "Kingfisher", package: "Kingfisher"),
-                .product(name: "iOS.Service.Network", package: "ios-service-network")
+                .product(name: "iOS.Service.Network", package: "iOS.Service.Network")
             ]
         ),
     ]
