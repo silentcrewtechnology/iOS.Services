@@ -37,7 +37,7 @@ public struct UserInfo: Decodable {
         case socialNetworks = "SocialNetworks"
         case status = "Status"
         case bankokCardStatus = "BankokCardStatus"
-        case redactedId = "AkbarsId"
+        case redactedId = "UserId"
         case defaultContractId = "DefaultContractId"
     }
     #else

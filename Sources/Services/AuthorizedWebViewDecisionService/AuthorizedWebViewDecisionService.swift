@@ -142,9 +142,9 @@ public final class AuthorizedWebViewDecisionService {
                 
                 let isAbbDomain: Bool = {
                     #if DEBUG
-                    cookie.domain.contains("akbars.ru")
+                    cookie.domain.contains("example.com")
                     #else
-                    cookie.domain.replacingOccurrences(of: "kb", with: "xx").contains(".axxars.ru")
+                    cookie.domain.contains("example.com")
                     #endif
                 }()
                 if isHostNameInCookieDomain || isAbbDomain {
